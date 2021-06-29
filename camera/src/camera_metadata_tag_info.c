@@ -2608,10 +2608,6 @@ int camera_metadata_enum_snprint(uint32_t tag,
                     msg = "PN9";
                     ret = 0;
                     break;
-                case ANDROID_SENSOR_TEST_PATTERN_MODE_BLACK:
-                    msg = "BLACK";
-                    ret = 0;
-                    break;
                 case ANDROID_SENSOR_TEST_PATTERN_MODE_CUSTOM1:
                     msg = "CUSTOM1";
                     ret = 0;
@@ -5358,12 +5354,6 @@ int camera_metadata_enum_value(uint32_t tag,
                 enumName = "PN9";
                 if (strncmp(name, enumName, size) == 0) {
                     *value = ANDROID_SENSOR_TEST_PATTERN_MODE_PN9;
-                    ret = 0;
-                    break;
-                }
-                enumName = "BLACK";
-                if (strncmp(name, enumName, size) == 0) {
-                    *value = ANDROID_SENSOR_TEST_PATTERN_MODE_BLACK;
                     ret = 0;
                     break;
                 }

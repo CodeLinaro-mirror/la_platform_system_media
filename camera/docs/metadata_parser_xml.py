@@ -219,7 +219,8 @@ class MetadataParserXml:
       enum_values = []
       enum_deprecateds = []
       enum_optionals = []
-      enum_visibilities = {}
+      enum_hiddens = []
+      enum_ndk_hiddens = []
       enum_notes = {}
       enum_sdk_notes = {}
       enum_ndk_notes = {}
@@ -236,9 +237,11 @@ class MetadataParserXml:
         if value.attrs.get('optional', 'false') == 'true':
           enum_optionals.append(value_body)
 
-        visibility = value.attrs.get('visibility')
-        if visibility is not None:
-          enum_visibilities[value_body] = visibility
+        if value.attrs.get('hidden', 'false') == 'true':
+          enum_hiddens.append(value_body)
+
+        if value.attrs.get('ndk_hidden', 'false') == 'true':
+          enum_ndk_hiddens.append(value_body)
 
         notes = value.find('notes')
         if notes is not None:
@@ -261,7 +264,8 @@ class MetadataParserXml:
       d['enum_values'] = enum_values
       d['enum_deprecateds'] = enum_deprecateds
       d['enum_optionals'] = enum_optionals
-      d['enum_visibilities'] = enum_visibilities
+      d['enum_hiddens'] = enum_hiddens
+      d['enum_ndk_hiddens'] = enum_ndk_hiddens
       d['enum_notes'] = enum_notes
       d['enum_sdk_notes'] = enum_sdk_notes
       d['enum_ndk_notes'] = enum_ndk_notes
