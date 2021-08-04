@@ -4323,6 +4323,7 @@ barcode value.<wbr/></p></span>
                     <span class="entry_type_enum_name">HIGH_SPEED_VIDEO (v3.2)</span>
                     <span class="entry_type_enum_deprecated">[deprecated]</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>This is deprecated,<wbr/> please use <a href="https://developer.android.com/reference/android/hardware/camera2/CameraDevice.html#createConstrainedHighSpeedCaptureSession">CameraDevice#createConstrainedHighSpeedCaptureSession</a>
 and <a href="https://developer.android.com/reference/android/hardware/camera2/CameraConstrainedHighSpeedCaptureSession.html#createHighSpeedRequestList">CameraConstrainedHighSpeedCaptureSession#createHighSpeedRequestList</a>
 for high speed video recording.<wbr/></p>
@@ -5000,6 +5001,16 @@ FREEFORM cropping can be used with <a href="#controls_android.control.zoomRatio"
 <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> is not 1.<wbr/>0,<wbr/> and <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a> is set to be
 windowboxing,<wbr/> the camera framework will override the <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a> to be
 the active array.<wbr/></p>
+<p>In the capture request,<wbr/> if the application sets <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> to a
+value != 1.<wbr/>0,<wbr/> the <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> tag in the capture result reflects the
+effective zoom ratio achieved by the camera device,<wbr/> and the <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a>
+adjusts for additional crops that are not zoom related.<wbr/> Otherwise,<wbr/> if the application
+sets <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> to 1.<wbr/>0,<wbr/> or does not set it at all,<wbr/> the
+<a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> tag in the result metadata will also be 1.<wbr/>0.<wbr/></p>
+<p>When the application requests a physical stream for a logical multi-camera,<wbr/> the
+<a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> in the physical camera result metadata will be 1.<wbr/>0,<wbr/> and
+the <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a> tag reflects the amount of zoom and crop done by the
+physical camera device.<wbr/></p>
             </td>
           </tr>
 
@@ -9985,6 +9996,7 @@ barcode value.<wbr/></p></span>
                     <span class="entry_type_enum_name">HIGH_SPEED_VIDEO (v3.2)</span>
                     <span class="entry_type_enum_deprecated">[deprecated]</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>This is deprecated,<wbr/> please use <a href="https://developer.android.com/reference/android/hardware/camera2/CameraDevice.html#createConstrainedHighSpeedCaptureSession">CameraDevice#createConstrainedHighSpeedCaptureSession</a>
 and <a href="https://developer.android.com/reference/android/hardware/camera2/CameraConstrainedHighSpeedCaptureSession.html#createHighSpeedRequestList">CameraConstrainedHighSpeedCaptureSession#createHighSpeedRequestList</a>
 for high speed video recording.<wbr/></p>
@@ -10727,6 +10739,16 @@ FREEFORM cropping can be used with <a href="#controls_android.control.zoomRatio"
 <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> is not 1.<wbr/>0,<wbr/> and <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a> is set to be
 windowboxing,<wbr/> the camera framework will override the <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a> to be
 the active array.<wbr/></p>
+<p>In the capture request,<wbr/> if the application sets <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> to a
+value != 1.<wbr/>0,<wbr/> the <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> tag in the capture result reflects the
+effective zoom ratio achieved by the camera device,<wbr/> and the <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a>
+adjusts for additional crops that are not zoom related.<wbr/> Otherwise,<wbr/> if the application
+sets <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> to 1.<wbr/>0,<wbr/> or does not set it at all,<wbr/> the
+<a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> tag in the result metadata will also be 1.<wbr/>0.<wbr/></p>
+<p>When the application requests a physical stream for a logical multi-camera,<wbr/> the
+<a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> in the physical camera result metadata will be 1.<wbr/>0,<wbr/> and
+the <a href="#controls_android.scaler.cropRegion">android.<wbr/>scaler.<wbr/>crop<wbr/>Region</a> tag reflects the amount of zoom and crop done by the
+physical camera device.<wbr/></p>
             </td>
           </tr>
 
@@ -18378,6 +18400,7 @@ raw sensor images.<wbr/></p>
                   <li>
                     <span class="entry_type_enum_name">PRIVATE_REPROCESSING (v3.2)</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>The camera device supports the Zero Shutter Lag reprocessing use case.<wbr/></p>
 <ul>
 <li>One input stream is supported,<wbr/> that is,<wbr/> <code><a href="#static_android.request.maxNumInputStreams">android.<wbr/>request.<wbr/>max<wbr/>Num<wbr/>Input<wbr/>Streams</a> == 1</code>.<wbr/></li>
@@ -18448,6 +18471,7 @@ megapixels,<wbr/> or the maximum resolution of the device,<wbr/> whichever is sm
                   <li>
                     <span class="entry_type_enum_name">YUV_REPROCESSING (v3.2)</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>The camera device supports the YUV_<wbr/>420_<wbr/>888 reprocessing use case,<wbr/> similar as
 PRIVATE_<wbr/>REPROCESSING,<wbr/> This capability requires the camera device to support the
 following:</p>
@@ -18517,6 +18541,7 @@ rate,<wbr/> including depth stall time.<wbr/></p></span>
                   <li>
                     <span class="entry_type_enum_name">CONSTRAINED_HIGH_SPEED_VIDEO (v3.2)</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>The device supports constrained high speed video recording (frame rate &gt;=120fps) use
 case.<wbr/> The camera device will support high speed capture session created by <a href="https://developer.android.com/reference/android/hardware/camera2/CameraDevice.html#createConstrainedHighSpeedCaptureSession">CameraDevice#createConstrainedHighSpeedCaptureSession</a>,<wbr/> which
 only accepts high speed request lists created by <a href="https://developer.android.com/reference/android/hardware/camera2/CameraConstrainedHighSpeedCaptureSession.html#createHighSpeedRequestList">CameraConstrainedHighSpeedCaptureSession#createHighSpeedRequestList</a>.<wbr/></p>
@@ -18756,6 +18781,7 @@ addition to android.<wbr/>permission.<wbr/>CAMERA in order to connect to this ca
                   <li>
                     <span class="entry_type_enum_name">OFFLINE_PROCESSING (v3.5)</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>The camera device supports the OFFLINE_<wbr/>PROCESSING use case.<wbr/></p>
 <p>With OFFLINE_<wbr/>PROCESSING capability,<wbr/> the application can switch an ongoing
 capture session to offline mode by calling the
@@ -18814,6 +18840,7 @@ The stream configurations supported in 'max resolution' mode are described by
                   <li>
                     <span class="entry_type_enum_name">REMOSAIC_REPROCESSING (v3.6)</span>
                     <span class="entry_type_enum_optional">[optional]</span>
+                    <span class="entry_type_enum_hidden">[java_public]</span>
                     <span class="entry_type_enum_notes"><p>The device supports reprocessing from the <code>RAW_<wbr/>SENSOR</code> format with a bayer pattern
 given by <a href="#static_android.sensor.info.binningFactor">android.<wbr/>sensor.<wbr/>info.<wbr/>binning<wbr/>Factor</a> (m x n group of pixels with the same
 color filter) to a remosaiced regular bayer pattern.<wbr/></p>
@@ -20033,45 +20060,6 @@ larger than active pixel array.<wbr/> Width and height may be
 rounded to nearest larger supportable width,<wbr/> especially
 for raw output,<wbr/> where only a few fixed scales may be
 possible.<wbr/></p>
-<p>For a set of output streams configured,<wbr/> if the sensor output is cropped to a smaller
-size than pre-correction active array size,<wbr/> the HAL need follow below cropping rules:</p>
-<ul>
-<li>
-<p>The HAL need to handle the cropRegion as if the sensor crop size is the effective
-pre-correction active array size.<wbr/> More specifically,<wbr/> the HAL must transform the request
-cropRegion from <a href="#static_android.sensor.info.preCorrectionActiveArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size</a> to the sensor cropped
-pixel area size in this way:</p>
-<ol>
-<li>If <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> is set to value x,<wbr/> scale the requested cropRegion
-with 1.<wbr/>0/<wbr/>x in relation to its center as the origin.<wbr/> For example,<wbr/> say the requested
-cropRegion is (crX,<wbr/> crY,<wbr/> crWidth,<wbr/> crHeight),<wbr/> override it with
-    <code>crX' = crX + crWidth * (1.<wbr/>0 - 1.<wbr/>0 /<wbr/> x) /<wbr/> 2</code>,<wbr/>
-    <code>crY' = crY + crHeight * (1.<wbr/>0 - 1.<wbr/>0 /<wbr/> x) /<wbr/> 2</code>,<wbr/>
-    <code>crWidth' = crWidth /<wbr/> x</code>,<wbr/> and
-    <code>crHeight' = crHeight /<wbr/> x</code>.<wbr/></li>
-<li>Translate the requested cropRegion w.<wbr/>r.<wbr/>t.,<wbr/> the left top corner of the sensor
-cropped pixel area by (tx,<wbr/> ty),<wbr/>
-where <code>ty = sensorCrop.<wbr/>top * (sensorCrop.<wbr/>height /<wbr/> preCorrectionActiveArraySize.<wbr/>height)</code>
-and <code>tx = sensorCrop.<wbr/>left * (sensorCrop.<wbr/>width /<wbr/> preCorrectionActiveArraySize.<wbr/>width)</code>.<wbr/>
-The (sensorCrop.<wbr/>top,<wbr/> sensorCrop.<wbr/>left) is the coordinate based off the
-<a href="#static_android.sensor.info.activeArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>active<wbr/>Array<wbr/>Size</a>.<wbr/></li>
-<li>Scale the width and height of requested cropRegion with scaling factor of
-sensor<wbr/>Crop.<wbr/>width/<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size.<wbr/>width and sensor<wbr/>Crop.<wbr/>height/<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size.<wbr/>height
-respectively.<wbr/>
-Once this new cropRegion is calculated,<wbr/> the HAL must use this region to crop the image
-with regard to the sensor crop size (effective pre-correction active array size).<wbr/> The
-HAL still need follow the general cropping rule for this new cropRegion and effective
-pre-correction active array size.<wbr/></li>
-</ol>
-</li>
-<li>
-<p>The HAL must report the cropRegion with regard to <a href="#static_android.sensor.info.preCorrectionActiveArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size</a>.<wbr/>
-The HAL need convert the new cropRegion generated above w.<wbr/>r.<wbr/>t.,<wbr/> full pre-correction
-active array size.<wbr/> The reported cropRegion may be slightly different with the requested
-cropRegion since the HAL may adjust the crop region to account for rounding,<wbr/> conversion
-error,<wbr/> or other hardware limitations.<wbr/></p>
-</li>
-</ul>
 <p>If <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> is supported by the HAL,<wbr/> the HAL must report the zoom
 ratio via <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a>,<wbr/> and change the coordinate system such that
 <a href="#static_android.sensor.info.preCorrectionActiveArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size</a> or <a href="#static_android.sensor.info.activeArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>active<wbr/>Array<wbr/>Size</a>(depending on whether <a href="#controls_android.distortionCorrection.mode">android.<wbr/>distortion<wbr/>Correction.<wbr/>mode</a> is supported) is used to
@@ -20659,8 +20647,8 @@ maximum zoom ratio.<wbr/></p>
           </tr>
           <tr class="entry_cont">
             <td class="entry_details" colspan="6">
-              <p>If the HAL supports <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a>,<wbr/> this value must be equal to the maximum
-supported zoomRatio specified in <a href="#static_android.control.zoomRatioRange">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio<wbr/>Range</a>.<wbr/></p>
+              <p>If the HAL supports <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a>,<wbr/> this value must be equal to or less than
+the maximum supported zoomRatio specified in <a href="#static_android.control.zoomRatioRange">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio<wbr/>Range</a>.<wbr/></p>
             </td>
           </tr>
 
@@ -21175,9 +21163,9 @@ check if it limits the maximum size for image data.<wbr/></p>
 <p>Not all output formats may be supported in a configuration with
 an input stream of a particular format.<wbr/> For more details,<wbr/> see
 <a href="#static_android.scaler.availableInputOutputFormatsMap">android.<wbr/>scaler.<wbr/>available<wbr/>Input<wbr/>Output<wbr/>Formats<wbr/>Map</a>.<wbr/></p>
-<p>The following table describes the minimum required output stream
-configurations based on the hardware level
-(<a href="#static_android.info.supportedHardwareLevel">android.<wbr/>info.<wbr/>supported<wbr/>Hardware<wbr/>Level</a>),<wbr/> prior to Android 12:</p>
+<p>For applications targeting SDK version older than 31,<wbr/> the following table
+describes the minimum required output stream configurations based on the hardware level
+(<a href="#static_android.info.supportedHardwareLevel">android.<wbr/>info.<wbr/>supported<wbr/>Hardware<wbr/>Level</a>):</p>
 <table>
 <thead>
 <tr>
@@ -21238,10 +21226,13 @@ configurations based on the hardware level
 </tr>
 </tbody>
 </table>
-<p>Starting from Android 12,<wbr/> the camera device may not support JPEG sizes smaller than the
-minimum of 1080p and the camera sensor active array size.<wbr/> The requirements for
-IMPLEMENTATION_<wbr/>DEFINED and YUV_<wbr/>420_<wbr/>888 stay the same.<wbr/> This new minimum required output
-stream configurations are illustrated by the table below:</p>
+<p>For applications targeting SDK version 31 or newer,<wbr/> if the mobile device declares to be
+<a href="https://developer.android.com/reference/android/os/Build/VERSION_CDOES/MEDIA_PERFORMANCE_CLASS.html">media performance class</a> S,<wbr/>
+the primary camera devices (first rear/<wbr/>front camera in the camera ID list) will not
+support JPEG sizes smaller than 1080p.<wbr/> If the application configures a JPEG stream
+smaller than 1080p,<wbr/> the camera device will round up the JPEG image size to at least
+1080p.<wbr/> The requirements for IMPLEMENTATION_<wbr/>DEFINED and YUV_<wbr/>420_<wbr/>888 stay the same.<wbr/>
+This new minimum required output stream configurations are illustrated by the table below:</p>
 <table>
 <thead>
 <tr>
@@ -21308,6 +21299,10 @@ stream configurations are illustrated by the table below:</p>
 </tr>
 </tbody>
 </table>
+<p>For applications targeting SDK version 31 or newer,<wbr/> if the mobile device doesn't declare
+to be media performance class S,<wbr/> or if the camera device isn't a primary rear/<wbr/>front
+camera,<wbr/> the minimum required output stream configurations are the same as for applications
+targeting SDK version older than 31.<wbr/></p>
 <p>Refer to <a href="#static_android.request.availableCapabilities">android.<wbr/>request.<wbr/>available<wbr/>Capabilities</a> for additional
 mandatory stream configurations on a per-capability basis.<wbr/></p>
 <p>Exception on 176x144 (QCIF) resolution: camera devices usually have a fixed capability for
@@ -21348,7 +21343,7 @@ ratio 4:3,<wbr/> the JPEG encoder alignment requirement is 16,<wbr/> the maximum
 the HAL must include all YUV_<wbr/>420_<wbr/>888 sizes that have JPEG sizes listed
 here as output streams.<wbr/></p>
 <p>It must also include each below resolution if it is smaller than or
-equal to the sensor maximum resolution (for both YUV_<wbr/>420_<wbr/>888 and IMPLEMENTATION_<wbr/>DEFINED
+equal to the sensor maximum resolution (for both YUV_<wbr/>420_<wbr/>888 and JPEG
 formats),<wbr/> as output streams:</p>
 <ul>
 <li>240p (320 x 240)</li>
@@ -21356,6 +21351,10 @@ formats),<wbr/> as output streams:</p>
 <li>720p (1280 x 720)</li>
 <li>1080p (1920 x 1080)</li>
 </ul>
+<p>Note that for Performance Class 12 primary cameras (first rear/<wbr/>front facing camera in the
+camera ID list),<wbr/> camera framework filters out JPEG sizes smaller than 1080p depending on
+applications' targetSdkLevel.<wbr/> The camera HAL must still support the smaller JPEG sizes
+to maintain backward comopatibility.<wbr/></p>
 <p>For LIMITED capability devices
 (<code><a href="#static_android.info.supportedHardwareLevel">android.<wbr/>info.<wbr/>supported<wbr/>Hardware<wbr/>Level</a> == LIMITED</code>),<wbr/>
 the HAL only has to list up to the maximum video size
@@ -23249,45 +23248,6 @@ larger than active pixel array.<wbr/> Width and height may be
 rounded to nearest larger supportable width,<wbr/> especially
 for raw output,<wbr/> where only a few fixed scales may be
 possible.<wbr/></p>
-<p>For a set of output streams configured,<wbr/> if the sensor output is cropped to a smaller
-size than pre-correction active array size,<wbr/> the HAL need follow below cropping rules:</p>
-<ul>
-<li>
-<p>The HAL need to handle the cropRegion as if the sensor crop size is the effective
-pre-correction active array size.<wbr/> More specifically,<wbr/> the HAL must transform the request
-cropRegion from <a href="#static_android.sensor.info.preCorrectionActiveArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size</a> to the sensor cropped
-pixel area size in this way:</p>
-<ol>
-<li>If <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> is set to value x,<wbr/> scale the requested cropRegion
-with 1.<wbr/>0/<wbr/>x in relation to its center as the origin.<wbr/> For example,<wbr/> say the requested
-cropRegion is (crX,<wbr/> crY,<wbr/> crWidth,<wbr/> crHeight),<wbr/> override it with
-    <code>crX' = crX + crWidth * (1.<wbr/>0 - 1.<wbr/>0 /<wbr/> x) /<wbr/> 2</code>,<wbr/>
-    <code>crY' = crY + crHeight * (1.<wbr/>0 - 1.<wbr/>0 /<wbr/> x) /<wbr/> 2</code>,<wbr/>
-    <code>crWidth' = crWidth /<wbr/> x</code>,<wbr/> and
-    <code>crHeight' = crHeight /<wbr/> x</code>.<wbr/></li>
-<li>Translate the requested cropRegion w.<wbr/>r.<wbr/>t.,<wbr/> the left top corner of the sensor
-cropped pixel area by (tx,<wbr/> ty),<wbr/>
-where <code>ty = sensorCrop.<wbr/>top * (sensorCrop.<wbr/>height /<wbr/> preCorrectionActiveArraySize.<wbr/>height)</code>
-and <code>tx = sensorCrop.<wbr/>left * (sensorCrop.<wbr/>width /<wbr/> preCorrectionActiveArraySize.<wbr/>width)</code>.<wbr/>
-The (sensorCrop.<wbr/>top,<wbr/> sensorCrop.<wbr/>left) is the coordinate based off the
-<a href="#static_android.sensor.info.activeArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>active<wbr/>Array<wbr/>Size</a>.<wbr/></li>
-<li>Scale the width and height of requested cropRegion with scaling factor of
-sensor<wbr/>Crop.<wbr/>width/<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size.<wbr/>width and sensor<wbr/>Crop.<wbr/>height/<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size.<wbr/>height
-respectively.<wbr/>
-Once this new cropRegion is calculated,<wbr/> the HAL must use this region to crop the image
-with regard to the sensor crop size (effective pre-correction active array size).<wbr/> The
-HAL still need follow the general cropping rule for this new cropRegion and effective
-pre-correction active array size.<wbr/></li>
-</ol>
-</li>
-<li>
-<p>The HAL must report the cropRegion with regard to <a href="#static_android.sensor.info.preCorrectionActiveArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size</a>.<wbr/>
-The HAL need convert the new cropRegion generated above w.<wbr/>r.<wbr/>t.,<wbr/> full pre-correction
-active array size.<wbr/> The reported cropRegion may be slightly different with the requested
-cropRegion since the HAL may adjust the crop region to account for rounding,<wbr/> conversion
-error,<wbr/> or other hardware limitations.<wbr/></p>
-</li>
-</ul>
 <p>If <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a> is supported by the HAL,<wbr/> the HAL must report the zoom
 ratio via <a href="#controls_android.control.zoomRatio">android.<wbr/>control.<wbr/>zoom<wbr/>Ratio</a>,<wbr/> and change the coordinate system such that
 <a href="#static_android.sensor.info.preCorrectionActiveArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>pre<wbr/>Correction<wbr/>Active<wbr/>Array<wbr/>Size</a> or <a href="#static_android.sensor.info.activeArraySize">android.<wbr/>sensor.<wbr/>info.<wbr/>active<wbr/>Array<wbr/>Size</a>(depending on whether <a href="#controls_android.distortionCorrection.mode">android.<wbr/>distortion<wbr/>Correction.<wbr/>mode</a> is supported) is used to
@@ -23856,10 +23816,10 @@ device returns captures from the image sensor.<wbr/></p>
 respective color channel provided in
 <a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a>.<wbr/></p>
 <p>For example:</p>
-<pre><code>android.<wbr/>control.<wbr/>test<wbr/>Pattern<wbr/>Data = [0,<wbr/> 0xFFFFFFFF,<wbr/> 0xFFFFFFFF,<wbr/> 0]
+<pre><code><a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a> = [0,<wbr/> 0xFFFFFFFF,<wbr/> 0xFFFFFFFF,<wbr/> 0]
 </code></pre>
 <p>All green pixels are 100% green.<wbr/> All red/<wbr/>blue pixels are black.<wbr/></p>
-<pre><code>android.<wbr/>control.<wbr/>test<wbr/>Pattern<wbr/>Data = [0xFFFFFFFF,<wbr/> 0,<wbr/> 0xFFFFFFFF,<wbr/> 0]
+<pre><code><a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a> = [0xFFFFFFFF,<wbr/> 0,<wbr/> 0xFFFFFFFF,<wbr/> 0]
 </code></pre>
 <p>All red pixels are 100% red.<wbr/> Only the odd green pixels
 are 100% green.<wbr/> All blue pixels are 100% black.<wbr/></p></span>
@@ -23923,6 +23883,15 @@ in hardware with a linear feedback shift register).<wbr/></p>
 <p>The generator should be reset at the beginning of each frame,<wbr/>
 and thus each subsequent raw frame with this test pattern should
 be exactly the same as the last.<wbr/></p></span>
+                  </li>
+                  <li>
+                    <span class="entry_type_enum_name">BLACK (v3.6)</span>
+                    <span class="entry_type_enum_hidden">[test]</span>
+                    <span class="entry_type_enum_notes"><p>All pixel data is replaced by 0% intensity (black) values.<wbr/></p>
+<p>This test pattern is identical to SOLID_<wbr/>COLOR with a value of <code>[0,<wbr/> 0,<wbr/> 0,<wbr/> 0]</code> for
+<a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a>.<wbr/>  It is recommended that devices implement full
+SOLID_<wbr/>COLOR support instead,<wbr/> but BLACK can be used to provide minimal support for a
+test pattern suitable for privacy use cases.<wbr/></p></span>
                   </li>
                   <li>
                     <span class="entry_type_enum_name">CUSTOM1 (v3.2)</span>
@@ -27446,10 +27415,10 @@ device returns captures from the image sensor.<wbr/></p>
 respective color channel provided in
 <a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a>.<wbr/></p>
 <p>For example:</p>
-<pre><code>android.<wbr/>control.<wbr/>test<wbr/>Pattern<wbr/>Data = [0,<wbr/> 0xFFFFFFFF,<wbr/> 0xFFFFFFFF,<wbr/> 0]
+<pre><code><a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a> = [0,<wbr/> 0xFFFFFFFF,<wbr/> 0xFFFFFFFF,<wbr/> 0]
 </code></pre>
 <p>All green pixels are 100% green.<wbr/> All red/<wbr/>blue pixels are black.<wbr/></p>
-<pre><code>android.<wbr/>control.<wbr/>test<wbr/>Pattern<wbr/>Data = [0xFFFFFFFF,<wbr/> 0,<wbr/> 0xFFFFFFFF,<wbr/> 0]
+<pre><code><a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a> = [0xFFFFFFFF,<wbr/> 0,<wbr/> 0xFFFFFFFF,<wbr/> 0]
 </code></pre>
 <p>All red pixels are 100% red.<wbr/> Only the odd green pixels
 are 100% green.<wbr/> All blue pixels are 100% black.<wbr/></p></span>
@@ -27513,6 +27482,15 @@ in hardware with a linear feedback shift register).<wbr/></p>
 <p>The generator should be reset at the beginning of each frame,<wbr/>
 and thus each subsequent raw frame with this test pattern should
 be exactly the same as the last.<wbr/></p></span>
+                  </li>
+                  <li>
+                    <span class="entry_type_enum_name">BLACK (v3.6)</span>
+                    <span class="entry_type_enum_hidden">[test]</span>
+                    <span class="entry_type_enum_notes"><p>All pixel data is replaced by 0% intensity (black) values.<wbr/></p>
+<p>This test pattern is identical to SOLID_<wbr/>COLOR with a value of <code>[0,<wbr/> 0,<wbr/> 0,<wbr/> 0]</code> for
+<a href="#controls_android.sensor.testPatternData">android.<wbr/>sensor.<wbr/>test<wbr/>Pattern<wbr/>Data</a>.<wbr/>  It is recommended that devices implement full
+SOLID_<wbr/>COLOR support instead,<wbr/> but BLACK can be used to provide minimal support for a
+test pattern suitable for privacy use cases.<wbr/></p></span>
                   </li>
                   <li>
                     <span class="entry_type_enum_name">CUSTOM1 (v3.2)</span>
