@@ -37,12 +37,12 @@ static inline std::vector<std::string> audio_get_configuration_paths() {
        s=value;
        if (s.compare("audioreach")==0) {
           if (property_get("ro.boot.product.vendor.sku", value, "") <= 0) {
-                return std::vector<std::string>({"/odm/etc",
+                return std::vector<std::string>({"/odm/etc", "/vendor/etc/audio_ar",
                     "/vendor/etc", "/system/etc"});
            } else {
                 return std::vector<std::string>({
                     "/odm/etc", std::string("/vendor/etc/audio/sku_") + value,
-                    "/vendor/etc", "/system/etc"});
+                    "/vendor/etc/audio_ar", "/vendor/etc", "/system/etc"});
            }
        } else {
           if (property_get("ro.boot.product.vendor.sku", value, "") <= 0) {
