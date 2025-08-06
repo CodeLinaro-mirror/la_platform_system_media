@@ -173,6 +173,12 @@ int proxy_open(alsa_device_proxy * proxy)
     if (profile->card < 0 || profile->device < 0) {
         return -EINVAL;
     }
+    /* Check if pcm device is not NULL, then close pcm device
+        before opening , by doing this way avoids device resource busy errors.*/
+    if( proxy->pcm != NULL) {
+        pcm_close(proxy->pcm);
+        proxy->pcm = NULL;
+    }
 
     proxy->pcm = pcm_open(profile->card, profile->device,
             profile->direction | ALSA_CLOCK_TYPE, &proxy->alsa_config);
