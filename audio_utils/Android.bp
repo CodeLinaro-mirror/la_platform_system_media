@@ -18,7 +18,13 @@ cc_defaults {
         "-Wall",
         "-Werror",
         "-Wthread-safety",
+        "-fstack-protector-strong",
     ],
+    target: {
+        vendor: {
+            cflags: ["-U_FORTIFY_SOURCE", "-D_FORTIFY_SOURCE=2"],
+        },
+    },
 }
 
 cc_library_headers {
@@ -70,6 +76,7 @@ cc_library {
         "mutex.cpp",
         "power.cpp",
         "primitives.c",
+        "property.cpp",
         "roundup.c",
         "sample.c",
         "threads.cpp",
