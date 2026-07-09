@@ -6,6 +6,17 @@ package {
     default_applicable_licenses: ["system_media_license"],
 }
 
+soong_config_module_type {
+    name: "audio_route_cc_library_shared",
+    module_type: "cc_library_shared",
+    config_namespace: "libaudiorouteapex",
+    bool_variables: ["LIB_AUDIO_ROUTE_APEX"],
+    properties: [
+        "apex_available",
+        "min_sdk_version",
+    ],
+}
+
 cc_defaults {
     name: "libaudioroute_defaults",
     vendor_available: true,
@@ -24,12 +35,21 @@ cc_defaults {
     ],
 }
 
-cc_library_shared {
+audio_route_cc_library_shared {
     name: "libaudioroute",
     defaults: ["libaudioroute_defaults"],
     shared_libs: [
         "libtinyalsa",
     ],
+    soong_config_variables: {
+        LIB_AUDIO_ROUTE_APEX: {
+            apex_available: [
+                "//apex_available:platform",
+                "//apex_available:anyapex",
+            ],
+            min_sdk_version: "35",
+        },
+    },
 }
 
 cc_library_shared {
