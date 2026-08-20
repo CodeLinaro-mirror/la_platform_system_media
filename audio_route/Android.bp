@@ -6,16 +6,6 @@ package {
     default_applicable_licenses: ["system_media_license"],
 }
 
-soong_config_module_type {
-    name: "audio_route_cc_library_shared",
-    module_type: "cc_library_shared",
-    config_namespace: "qti",
-    bool_variables: ["AUDIO_SDV_APEX_ENABLED"],
-    properties: [
-        "apex_available",
-    ],
-}
-
 cc_defaults {
     name: "libaudioroute_defaults",
     vendor_available: true,
@@ -34,21 +24,12 @@ cc_defaults {
     ],
 }
 
-audio_route_cc_library_shared {
+cc_library_shared  {
     name: "libaudioroute",
     defaults: ["libaudioroute_defaults"],
-    shared_libs: select(soong_config_variable("qti", "AUDIO_SDV_APEX_ENABLED"), {
-        "true": ["libqti-tinyalsa"],
-        default: ["libtinyalsa"],
-    }),
-    soong_config_variables: {
-        AUDIO_SDV_APEX_ENABLED: {
-            apex_available: [
-                "//apex_available:platform",
-                "//apex_available:anyapex",
-            ],
-        },
-    },
+    shared_libs: [
+        "libtinyalsa",
+    ],
 }
 
 cc_library_shared {
